@@ -209,7 +209,9 @@ public class WalkieTalkieActivity extends Activity implements View.OnTouchListen
                 public void onCallEstablished(SipAudioCall call) {
                     call.startAudio();
                     call.setSpeakerMode(true);
-                    call.toggleMute();
+                    if(!call.isMuted())
+                    	call.toggleMute();
+                    
                     updateStatus(call);
                 }
 
