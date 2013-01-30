@@ -45,5 +45,14 @@
             android:textOn=""
             android:layout_marginTop="-20dp" />
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pushToTalk"
+            android:layout_centerHorizontal="true"
+            android:text="@string/push_to_talk"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
     </RelativeLayout>
 </FrameLayout>
