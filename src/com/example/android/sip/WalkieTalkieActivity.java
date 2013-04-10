@@ -62,7 +62,7 @@ public class WalkieTalkieActivity extends Activity implements View.OnTouchListen
 		setContentView(R.layout.walkietalkie);
 
 		if(SipManager.isVoipSupported(getBaseContext()) && SipManager.isApiSupported(getBaseContext()))
-			Toast.makeText(getApplicationContext(), "SIP is supported", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "SIP is supported!", Toast.LENGTH_LONG).show();
 		else
 			Toast.makeText(getApplicationContext(), "SIP NOT supported. App will not work", Toast.LENGTH_LONG).show();
 
@@ -219,7 +219,7 @@ public class WalkieTalkieActivity extends Activity implements View.OnTouchListen
 
 				@Override
 				public void onCallEnded(SipAudioCall call) {
-					updateStatus("Read.");
+					updateStatus("Ready.");
 				}
 
 				@Override
@@ -319,6 +319,7 @@ public class WalkieTalkieActivity extends Activity implements View.OnTouchListen
 							"Error ending call.", se);
 				}
 				call.close();
+				updateStatus("Ready.");
 			}
 			break;
 		}

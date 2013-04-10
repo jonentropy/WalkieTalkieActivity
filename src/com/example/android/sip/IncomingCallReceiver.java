@@ -35,6 +35,8 @@ public class IncomingCallReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         SipAudioCall incomingCall = null;
+        final WalkieTalkieActivity wtActivity = (WalkieTalkieActivity) context;
+        
         try {
 
             SipAudioCall.Listener listener = new SipAudioCall.Listener() {
@@ -46,9 +48,12 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                         e.printStackTrace();
                     }
                 }
+                
+            	@Override
+				public void onCallEnded(SipAudioCall call) {
+            		wtActivity.updateStatus("Ready.");
+				}
             };
-
-            WalkieTalkieActivity wtActivity = (WalkieTalkieActivity) context;
 
             incomingCall = wtActivity.manager.takeAudioCall(intent, listener);
             incomingCall.answerCall(30);
